@@ -1,0 +1,92 @@
+<head>
+<style>
+th,unoc,occu{
+    border: 1px solid black;
+    padding: 0px 0px 0px 0px;
+    width: 300px;
+    height: 300px;
+    font-size: 200px;
+    cursor: pointer;
+
+}
+.unoc{
+    cursor: pointer;
+}
+
+.occu{
+    cursor:not-allowed;
+
+}
+.unoc:hover{
+    background-color: grey;
+}
+</style>
+</head>
+
+
+<body>
+<table>
+<tr>
+    <th class="unoc" id ="1" ></th>
+    <th class="unoc" id ="2" ></th>
+    <th class="unoc" id ="3" ></th>
+</tr>
+<tr>
+    <th class="unoc" id ="4" ></th>
+    <th class="unoc" id ="5" ></th>
+    <th class="unoc" id ="6" ></th>
+</tr>
+<tr>
+    <th class="unoc" id ="7" ></th>
+    <th class="unoc" id ="8" ></th>
+    <th class="unoc" id ="9" "></th>
+</tr>
+</table>
+
+</body>
+
+<script>
+
+    let unoc = ["1","2","3","4","5","6","7","8","9"]
+       for (let i = 1; i <= 9; i++) {
+    const cell = document.getElementById(i.toString());
+    cell.addEventListener("click", () => {choose(cell);});
+}
+function choose(element) {
+     if(element.className == "occu"){
+    console.log("chosen");
+    return;
+  }
+    console.log(element.id);
+ 
+  element.textContent= "X"
+  let position = unoc.indexOf(element.id);
+    console.log(position);
+
+  if (position == -1) {
+    console.log("NO")
+    return;
+  }
+  unoc.splice(position,1);
+  console.log(unoc);
+  element.className = "occu";
+  random();
+
+}
+function random(){
+    let random = (Math.round(Math.random() *10)) % unoc.length;
+    console.log(random);
+    let elem = document.getElementById(unoc[random]);
+    let position = unoc.indexOf(unoc[random]);
+    if (position == -1) {
+    console.log("NO")
+    return;
+  }
+    unoc.splice(position,1);
+    elem.textContent= "O";
+    console.log(unoc);
+    elem.className = "occu";
+}
+
+
+</script>

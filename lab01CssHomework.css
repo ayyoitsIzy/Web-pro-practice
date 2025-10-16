@@ -1,0 +1,99 @@
+/*Give the <body> element a background of #bda464*/
+body{
+    background-color: #bda464;
+}
+/*Make the <h1> elements blue*/
+h1{
+    color: blue;
+}
+/*Make all <li> elements in the shade of hexadecimal blue*/
+li:nth-child(1){
+    color: #000047;
+}
+li:nth-child(2){
+    color: #000075;
+}
+li:nth-child(3){
+    color: #0000A3;
+}
+li:nth-child(4){
+    color: #0000D1;
+}
+li:nth-child(5){
+    color: #0000FF;
+}
+li:nth-child(6){
+    color: #2E2EFF;
+}
+li:nth-child(7){
+    color: #5C5CFF;
+}
+li:nth-child(8){
+    color: #8A8AFF;
+}
+li:nth-child(9){
+    color: #B8B8FF;
+}
+/*Paragraph background to orange*/
+p{
+    background-color: orange;
+}
+/*Make all <h3> have 5px red solid border*/
+h3{
+      border: 5px solid red;
+}
+/*Give everything with <abbr> bold and underlined*/
+abbr{
+    font-weight: bold;
+    text-decoration: underline;
+}
+/*Give elements with class "explanation" red*/
+.explanation{
+    color: red;
+}
+/*Give <p> in id "zen-benefits" pink background*/
+#zen-benefits > p{
+    background-color: pink;
+}
+/*Make <li> adjacent to <h2> red background*/
+h2 + ul::first-line{
+    background-color: red;
+}
+/*Give <em> inside <p> red and bold*/
+p em{
+    color: red;
+    font-weight: bold;
+}
+/* Give visited link green */
+a:visited{
+    color: green;
+}
+/* Change to body font to any google font as you like */
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+/* Add any animation to <h1> (try the new one not same as the example) */
+@keyframes anim {
+  0%   {left:0px; top:0px;transform:scale(200%);}
+
+  10%  {left:200px; top:10px;}
+  20%  {left:400px; top:0px;}
+  30%  {left:600px; top:10px;}
+  40%  {left:800px; top:0px;}
+  50%  {left:600px; top:10px;transform:scale(100%);}
+  60%  {left:400px; top:0px;}
+  70%  {left:200px; top:10px;}
+  80% {left:0px; top:0px;}
+  100%  {left:0px; top:0px;transform:scale(200%);}
+
+}
+
+h1{
+ width: fit-content;
+  height: 20px;
+  position: relative;
+  animation-timing-function:linear;
+  animation-name: anim;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}

@@ -1,0 +1,100 @@
+header img {
+    margin: 50px 50px;
+    height: 50px;
+    position: absolute;
+}
+
+body{
+    margin: 0px 0px;
+}
+
+
+header{
+    clip-path: polygon(1% 1%, 99% 1%, 99% 85%, 1% 95%);
+    background-size:cover;
+    background-image:radial-gradient(
+        circle at top left,
+        #30761f85,
+        #47e37885,
+        #47e39f85,
+        #47e3c185
+      ),url("../img/background.jpeg");
+    
+}
+
+h1 {
+    position: relative;
+     display: flex;
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column;
+    height: 100vh;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 40px;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    
+}
+@keyframes slideleft{
+    0%{left : 300px;color: rgba(255, 255, 255, 0);}
+    70%{left: -5px;}
+    100%{left: 0px;color:  rgba(255, 255, 255, 1);}
+
+}
+@keyframes slideright{
+    0%{right : 300px;color: rgba(255, 255, 255, 0);}
+    50%{right: -10px;}
+    70%{right: 0px;color:  rgba(255, 255, 255, 1);}
+
+}
+
+
+
+
+.main{
+    animation: slideright 2s ease;
+    font-size: 150px;
+    position: relative;
+    padding-bottom: 30px;
+
+}
+
+.sub{
+    animation: slideleft 2s ease;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-size: 50px;
+    position: relative;
+
+}
+
+h1 a{
+    text-transform: uppercase;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing:normal;
+    font-weight:200;
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid white;
+    border-color: white;
+    border-radius: 300px;
+    padding: 30px 70px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0);
+
+}
+
+
+
+
+
+h1 a:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.452);
+
+}
+

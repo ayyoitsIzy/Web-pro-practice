@@ -1,0 +1,67 @@
+<head>
+<style>
+#outer{
+    background-color: purple;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+#inner{
+    background-color: red;
+        height: 45px;
+        margin-left: 30px;
+        margin-right: 30px;
+            cursor: pointer;
+            opacity: 1;
+
+
+}
+
+
+
+button{
+    height: 30px;
+    width: 100px;
+}
+</style>
+    </head>
+
+
+
+
+
+<body>
+    <div id = "outer" >
+        <div id="inner" ></div>
+    </div>
+    <button id = "reset" >reset</button>
+</body>
+
+
+
+<script>
+
+    document.getElementById("outer").addEventListener("click" , (e) => {bubble(document.getElementById("outer"),e);});
+    document.getElementById("inner").addEventListener("click", (e) => {bubble(document.getElementById("inner"),e);});
+    document.getElementById("reset").addEventListener("click", () => {reset();});
+
+    function bubble(element,event){
+        event.stopPropagation();
+       if (element.style.opacity == "1" || element.style.opacity == "") {
+            element.style.opacity = "0.3";
+        } else {
+             element.style.opacity = "1";
+        }
+    }
+    function reset(){
+        let outer =  document.getElementById("outer");
+        let inner =  document.getElementById("inner");
+        outer.style.opacity = "1";
+        inner.style.opacity = "1";
+    }
+
+</script>
