@@ -16,28 +16,35 @@ body{
 
 
 #calculator{
+    width: 907px;
+    height: 907px;
     position: relative;
     animation-name: slidein;
     animation-timing-function: ease-out;
     animation-duration: 0.5s;
     display: grid;
-    grid-template-columns: 200px 200px 200px;
-    grid-template-rows: 200px ;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(10,1fr);
     border: 1px solid rgb(63, 63, 63);
     background-color: rgb(63, 63, 63);
 }
 
 #display{
-    margin: 40px 10px;
-    grid-column: 1/4;
+
+    margin: 20px 20px;
+    box-sizing:border-box;
+    grid-column: 1/11;
+    grid-row: 1/4;
     background-color: aquamarine;
-    font-size: 60px;
+    font-size:90px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
 .but{
+    grid-row: span 2;
+    grid-column: span 2;
     background-color: gray;
     margin: 20px 20px;
     display: flex;
@@ -45,10 +52,29 @@ body{
     justify-content: center;
     font-size: 60px;
     cursor: pointer;
+    
+    transition: background-color 2s ease-in,transform 2s ease-in-out;
+
 }
 
 .but:hover{
     background-color: azure;
+    transform: scale(110%);
+}
+
+
+#plus{
+        grid-column: span 3;
+
+    }
+
+#minus{ 
+        grid-column: span 3
+
+}
+
+#enter{
+    grid-column: span 4;
 }
 
 </style>
@@ -69,10 +95,10 @@ body{
     <div id = "7" class = "but">7</div>
     <div id = "8" class = "but">8</div>
     <div id = "9" class = "but">9</div>
-    <div id = "+" class = "but">+</div>
     <div id = "0" class = "but">0</div>
-    <div id = "-" class = "but">-</div>
-
+    <div id = "plus" class = "but">+</div>
+    <div id = "minus" class = "but">-</div>
+    <div id = "enter" class = "but">enter</div>
 </div>
 </body>
 
@@ -111,6 +137,29 @@ if (event.key === "Enter") {
 }
 });
 
+document.getElementById("enter").addEventListener("click",function(event){
+
+    console.log("kuy");
+    X = parseInt(X);
+    Y = parseInt(Y);
+    console.log(X,Y,op)
+    switch(op){
+        case "-" :
+            display.textContent = X-Y;
+            break ;
+        case "+" :
+            display.textContent = X + Y;
+            break ;
+        default :
+            display.textContent = "Error";
+            break ;
+    }
+    op = "";
+    X = "";
+    Y = "";
+
+});
+
 for (let int = 0; int < 10; int++){
     let but = document.getElementById(int)
     but.addEventListener("click",function(event){
@@ -128,15 +177,19 @@ for (let int = 0; int < 10; int++){
     })
 }
 
-let plus = document.getElementById("+");
-let negative =  document.getElementById("-");
+let plus = document.getElementById("plus");
+let negative =  document.getElementById("minus");
 
 plus.addEventListener("click", ()=>{
-console.log("+");
+if (X === "") return;
+console.log("plus");
+display.textContent = "+";
 op = "+";
 })
 negative.addEventListener("click", ()=>{
+if (X === "") return;
 console.log("-");
+display.textContent = "-";
 op = "-";
 
 })
